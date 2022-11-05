@@ -1,4 +1,3 @@
-const { ObjectID } = require("bson");
 const mongoose = require("mongoose");
 const validator = require('validator');
 //schema design
@@ -19,9 +18,9 @@ const productSchema = mongoose.Schema({
         type: String,
         validate: [validator.isURL, "Please provide a valid URL"]
     },
-    category:{
-      type:String,
-      require:true,
+    price:{
+        type:Number,
+        required: true
     },
     brand:{
         type:String,

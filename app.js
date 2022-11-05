@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 app.use(express.json());
 app.use(cors());
 //routes
-// const jobsRoute=require('./routes/jobs.route')
+const productRoute=require('./routes/product.route')
 
 
 app.get("/", (req, res) => {
@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 // route colling
-// app.use("/",jobsRoute)
+app.use("/api/v1/product",productRoute)
 
 
 
