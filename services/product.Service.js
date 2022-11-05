@@ -15,3 +15,9 @@ exports.getProductByIdService = async (id) => {
     return product;
 }
 
+exports.updateProductService = async (id,data) => {
+    const result = await Product.updateOne({_id:id},data,{
+        runValidators:true
+    })
+    return result;
+}
