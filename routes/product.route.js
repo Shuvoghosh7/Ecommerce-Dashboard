@@ -1,9 +1,11 @@
 const express = require("express");
 const router=express.Router()
-const productController=require('../controller/product.controller')
+const productController=require('../controller/product.controller');
+const authorization = require("../middlewar/authorization");
+const verifyToken = require("../middlewar/verifyToken");
 
 router.route('/')
-.get(productController.getProduct)
+.get(verifyToken,authorization("Admin"),productController.getProduct)
 .post(productController.createProduct)
 router.route('/:id')
 .get(productController.getProductById)
