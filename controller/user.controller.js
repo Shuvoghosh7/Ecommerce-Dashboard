@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const { createUserService, getUserByEmail } = require('../services/user.service');
+const { createUserService, getUserByEmail, updateUserService } = require('../services/user.service');
 const { generateToken } = require('../utils/token');
 
 exports.singup = async (req, res, next) => {
@@ -91,4 +91,24 @@ exports.singup = async (req, res, next) => {
         error,
       })
     }
+  }
+
+  exports.UpdateUserRole=async(req,res)=>{
+    try {
+      const {id}=req.params;
+      const result=await updateUserService(id,req.body)
+      res.status(200).json({
+        stauts: "success",
+        massage: "Data Update successfully",
+        data: result
+      })
+      
+    } catch (error) {
+      res.status(400).json({
+        stauts:"fail",
+        message: "User role is not update",
+        error : error.message
+      })
+    }
+
   }
