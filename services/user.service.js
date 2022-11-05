@@ -6,4 +6,7 @@ exports.createUserService = async (userInfo) => {
     return catagory;
 }
 
+exports.getUserByEmail=async(email)=>{
+    return await User.findOne({email})
+}
 
