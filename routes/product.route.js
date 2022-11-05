@@ -8,9 +8,6 @@ router.route('/')
 router.route('/:id')
 .get(productController.getProductById)
 .patch(productController.updateProduct)
-// .delete(productController.deleteProduct)
-/* router.route('/:id')
-.patch(productController.updateProduct)
-.delete(productController.deleteProduct) */
+.delete(productController.deleteProduct)
 
 module.exports=router;

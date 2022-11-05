@@ -21,3 +21,8 @@ exports.updateProductService = async (id,data) => {
     })
     return result;
 }
+
+exports.deleteProductService = async (id) => {
+    const result = await Product.deleteOne({_id:id})
+    return result;
+}
